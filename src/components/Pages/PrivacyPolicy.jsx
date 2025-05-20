@@ -32,7 +32,7 @@ const PrivacyPolicy = () => {
       </div>
       {/* Add more content below as needed... */}
 
-      <div className="min-h-screen bg-white p-6 space-y-8">
+      <div className="min-h-screen bg-white md:p-6 space-y-8">
         <div className=" w-[95%] flex justify-center  flex-col">
           <h3 className="text-2xl font-bold mb-4 border-l-4 border-blue-600 pl-3 ">
             1. Consent
@@ -73,26 +73,26 @@ const PrivacyPolicy = () => {
             We use the information we collect in various ways, including to:
           </p>
           <ul className="list-disc list-inside text-gray-600 text-lg space-y-1">
-            <li className="ml-10">
+            <li className="ml-8">
               Provide, operate, and maintain our website
             </li>
-            <li className="ml-10">
+            <li className="ml-6">
               Improve, personalize, and expand our website
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               Understand and analyze how you use our website
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               Develop new products, services, features, and functionality
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               Communicate with you, either directly or through one of our
               partners, including for customer service, to provide you with
               updates and other information relating to the website, and for
               marketing and promotional purposes
             </li>
-            <li className="ml-10">Send you emails</li>
-            <li className="ml-10">Find and prevent fraud</li>
+            <li className="ml-8">Send you emails</li>
+            <li className="ml-8">Find and prevent fraud</li>
           </ul>
 
           <hr className="border-gray-300 my-8" />
@@ -235,16 +235,16 @@ const PrivacyPolicy = () => {
             right to:
           </p>
           <ul className="list-disc list-inside text-gray-600 text-lg space-y-1">
-            <li className="ml-10">
+            <li className="ml-8">
               Request that a business that collects a consumer's personal data
               disclose the categories and specific pieces of personal data that
               a business has collected about consumers.
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               Request that a business delete any personal data about the
               consumer that a business has collected.
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               Request that a business that sells a consumer's personal data, not
               sell the consumer's personal data.
             </li>
@@ -264,30 +264,30 @@ const PrivacyPolicy = () => {
             protection rights. Every user is entitled to the following:
           </p>
           <ul className="list-disc list-inside text-gray-600 text-lg space-y-1">
-            <li className="ml-10">
+            <li className="ml-8">
               The right to access – You have the right to request copies of your
               personal data. We may charge you a small fee for this service.
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               The right to rectification – You have the right to request that we
               correct any information you believe is inaccurate. You also have
               the right to request that we complete the information you believe
               is incomplete.
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               The right to erasure – You have the right to request that we erase
               your personal data, under certain conditions.
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               The right to restrict processing – You have the right to request
               that we restrict the processing of your personal data, under
               certain conditions.
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               The right to object to processing – You have the right to object
               to our processing of your personal data, under certain conditions.
             </li>
-            <li className="ml-10">
+            <li className="ml-8">
               The right to data portability – You have the right to request that
               we transfer the data that we have collected to another
               organization, or directly to you, under certain conditions.
