@@ -116,7 +116,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="/privacy"
+                to="/privacy"
                 className="hover:underline transition duration-200 hover:text-gray-200 hover:text-[1.01rem]"
               >
                 <span className="flex items-center">
@@ -126,7 +126,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="/terms"
+                to="/terms"
                 className="hover:underline transition duration-200 hover:text-gray-200 hover:text-[1.01rem]"
               >
                 <span className="flex items-center">
@@ -136,7 +136,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="/career"
+                to="/career"
                 className="hover:underline transition duration-200 hover:text-gray-200 hover:text-[1.01rem]"
               >
                 <span className="flex items-center">
