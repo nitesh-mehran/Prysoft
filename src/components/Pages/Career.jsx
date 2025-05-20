@@ -8,7 +8,6 @@ const Career = () => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  // State for form data
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,7 +17,6 @@ const Career = () => {
     noticePeriod: "",
   });
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -27,33 +25,31 @@ const Career = () => {
     }));
   };
 
-  const whatsappNumber = "918104942875"; 
+  const whatsappNumber = "918104942875";
 
- const handleSubmit = (e) => {
-  e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  const message = `*New Career Form Submission*\n
+    const message = `*New Career Form Submission*\n
 Name: ${formData.name}
 Email: ${formData.email}
 Contact Number: ${formData.contact}
 Job Profile: ${formData.jobProfile}
 Experience: ${formData.experience}
 Notice Period: ${formData.noticePeriod}`;
-  const encodedMessage = encodeURIComponent(message);
-  const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-  window.open(whatsappURL, "_blank");
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, "_blank");
 
-  // Form ko reset kar do
-  setFormData({
-    name: "",
-    email: "",
-    contact: "",
-    jobProfile: "",
-    experience: "",
-    noticePeriod: "",
-  });
-};
-
+    setFormData({
+      name: "",
+      email: "",
+      contact: "",
+      jobProfile: "",
+      experience: "",
+      noticePeriod: "",
+    });
+  };
 
   const CareerTop = () => (
     <div className="relative bg-[#1F22BF] pb-20">
@@ -96,18 +92,19 @@ Notice Period: ${formData.noticePeriod}`;
     <>
       <CareerTop />
 
-      <div className="bg-white min-h-screen py-16 px-4 md:px-10">
+      <div className="bg-white min-h-screen py-10 px-4 sm:px-6 md:px-10">
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+          {/* Left Section - Form */}
           <div>
             {/* Heading */}
-            <div className="mb-8 text-left ml-48">
+            <div className="mb-8 text-center md:text-left md:ml-12">
               <h2 className="text-blue-800 font-semibold text-lg">
                 🔷 Job Opportunities
               </h2>
-              <h1 className="text-4xl font-bold text-gray-900 mt-2">
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">
                 Fill This Form
               </h1>
-              <div className="w-16 h-1 bg-black mt-4 ml-16"></div>
+              <div className="w-16 h-1 bg-black mt-4 mx-auto md:mx-0"></div>
             </div>
 
             {/* Form */}
@@ -170,7 +167,7 @@ Notice Period: ${formData.noticePeriod}`;
                 />
               </div>
 
-              {/* For file upload (Resume), WhatsApp API cannot send files directly */}
+              {/* File Upload (Disabled) */}
               <div>
                 <label className="block text-gray-600 text-sm mb-1">
                   Resume/CV (Please attach manually in WhatsApp chat)
@@ -197,7 +194,7 @@ Notice Period: ${formData.noticePeriod}`;
             <img
               src="/career.jpeg"
               alt="Career Growth"
-              className="w-full max-w-md h-[500px] object-cover rounded-xl shadow"
+              className="w-full max-w-md h-auto object-cover rounded-xl shadow"
             />
           </div>
         </div>
