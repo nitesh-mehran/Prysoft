@@ -117,6 +117,7 @@ const Footer = () => {
             <li>
               <Link
                 to="/privacy"
+                 onClick={scrollToTop}
                 className="hover:underline transition duration-200 hover:text-gray-200 hover:text-[1.01rem]"
               >
                 <span className="flex items-center">
@@ -127,6 +128,7 @@ const Footer = () => {
             <li>
               <Link
                 to="/terms"
+                 onClick={scrollToTop}
                 className="hover:underline transition duration-200 hover:text-gray-200 hover:text-[1.01rem]"
               >
                 <span className="flex items-center">
@@ -137,6 +139,7 @@ const Footer = () => {
             <li>
               <Link
                 to="/career"
+                 onClick={scrollToTop}
                 className="hover:underline transition duration-200 hover:text-gray-200 hover:text-[1.01rem]"
               >
                 <span className="flex items-center">
