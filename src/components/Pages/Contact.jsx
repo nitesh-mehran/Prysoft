@@ -1,23 +1,70 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import emailjs from "@emailjs/browser";
+
+import { toast } from 'sonner';
+
+
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState(null);
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .send(
+      "service_h5806c2",
+      "template_0bxp6hv",
+      formData,
+      "lPxMuAz56v9GE6-7n"
+    )
+    .then(
+      () => {
+        toast.success(" Message sent successfully!");
+        setFormData({ user_name: "", user_email: "", message: "" });
+      },
+      () => {
+        toast.error(" Failed to send message. Please try again.");
+      }
+    );
+};
+
+
   return (
     <>
-      {/* Blue Header Section with Wave */}
-      <div className="relative bg-[#1F22BF]" data-aos="fade-down">
-        <div className="text-center text-white py-6 sm:py-8 md:py-10 px-6 sm:px-10 lg:px-20">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 leading-tight">
-            Are you a client who need help?
+      <div className="relative bg-[#1F22BF] pb-20">
+        <div
+          className="text-center text-white py-10 sm:py-12 md:py-16 px-6 sm:px-10 lg:px-20"
+          data-aos="fade-down"
+        >
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight">
+            A glimpse of our journey full of contentment and bliss.
           </h1>
           <div className="text-white/80 text-sm sm:text-base md:text-lg">
-            <Link to="/" className="hover:underline">Home</Link>
+            <Link to="/" className="hover:underline">
+              Home
+            </Link>
             <span className="mx-2">/</span>
             Pages
             <span className="mx-2">/</span>
@@ -26,9 +73,9 @@ const Contact = () => {
         </div>
 
         {/* Wave */}
-        <div className="w-full overflow-hidden leading-[0]" data-aos="fade-up">
+        <div className="absolute bottom-0 w-full overflow-hidden leading-[0]">
           <svg
-            className="block w-full h-[100px] sm:h-[130px]"
+            className="relative block w-full h-[120px] sm:h-[150px]"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1440 320"
             preserveAspectRatio="none"
@@ -42,48 +89,64 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Contact Section - White Background */}
-      <section className="bg-white min-h-screen flex flex-col items-center justify-center px-4 md:px-16 py-16">
-        {/* Section Heading */}
-        <div className="text-center mb-12" data-aos="fade-up">
+      {/* Contact Section */}
+      <section className="bg-white min-h-screen flex flex-col items-center justify-center px-6 py-16">
+        <div className="text-center mb-10" data-aos="fade-up">
           <h2 className="text-4xl font-bold text-blue-800 mb-2">Contact Us</h2>
-          <h3 className="text-2xl font-semibold text-gray-900">
+          <p className="text-xl font-medium text-gray-700">
             Contact For Any Query
-          </h3>
+          </p>
           <div className="w-12 h-1 bg-black mx-auto mt-2 rounded" />
         </div>
 
-        {/* Contact Form */}
-        <form className="w-full max-w-3xl space-y-6" data-aos="zoom-in-up">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-3xl space-y-6"
+          data-aos="zoom-in-up"
+        >
           <div className="flex flex-col md:flex-row gap-6">
             <input
               type="text"
+              name="user_name"
               placeholder="Your Name"
-              className="w-full px-5 py-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:shadow-md transition"
+              value={formData.user_name}
+              onChange={handleChange}
+              required
+              className="w-full px-5 py-4 border border-gray-300 rounded-lg"
               data-aos="fade-right"
             />
             <input
               type="email"
+              name="user_email"
               placeholder="Your Email"
-              className="w-full px-5 py-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:shadow-md transition"
+              value={formData.user_email}
+              onChange={handleChange}
+              required
+              className="w-full px-5 py-4 border border-gray-300 rounded-lg"
               data-aos="fade-left"
             />
           </div>
 
           <textarea
+            name="message"
             rows={4}
-            placeholder="Message"
-            className="w-full px-5 py-4 border border-gray-300 rounded-lg shadow-sm resize-y focus:outline-none focus:ring-2 focus:ring-blue-500 focus:shadow-md transition"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className="w-full px-5 py-4 border border-gray-300 rounded-lg resize-y"
             data-aos="fade-up"
           />
 
           <button
             type="submit"
-            className="w-full bg-blue-800 text-white text-lg font-semibold py-4 rounded-lg hover:bg-blue-900 transition duration-300"
+            className="w-full bg-blue-800 text-white py-4 rounded-lg font-semibold hover:bg-blue-900 transition"
             data-aos="zoom-in"
           >
             Send Message
           </button>
+
+          
         </form>
       </section>
     </>

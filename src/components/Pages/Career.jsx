@@ -1,12 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
+import { toast } from "sonner";
 
 const Career = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100,
+    });
   }, []);
+
+  const formRef = useRef();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -25,30 +33,32 @@ const Career = () => {
     }));
   };
 
-  const whatsappNumber = "918104942875";
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const message = `*New Career Form Submission*\n
-Name: ${formData.name}
-Email: ${formData.email}
-Contact Number: ${formData.contact}
-Job Profile: ${formData.jobProfile}
-Experience: ${formData.experience}
-Notice Period: ${formData.noticePeriod}`;
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    window.open(whatsappURL, "_blank");
-
-    setFormData({
-      name: "",
-      email: "",
-      contact: "",
-      jobProfile: "",
-      experience: "",
-      noticePeriod: "",
-    });
+    emailjs
+      .sendForm(
+        "service_h5806c2",
+        "template_29kb3hs",
+        formRef.current,
+        "lPxMuAz56v9GE6-7n"
+      )
+      .then(
+        (result) => {
+          toast.success("Form submitted successfully!");
+          setFormData({
+            name: "",
+            email: "",
+            contact: "",
+            jobProfile: "",
+            experience: "",
+            noticePeriod: "",
+          });
+        },
+        (error) => {
+          toast.error("Please fill required fields!");
+        }
+      );
   };
 
   const CareerTop = () => (
@@ -95,22 +105,20 @@ Notice Period: ${formData.noticePeriod}`;
       <div className="bg-white min-h-screen py-10 px-4 sm:px-6 md:px-10">
         <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
           {/* Left Section - Form */}
-          <div>
-            {/* Heading */}
-            <div className="mb-8 text-center md:text-left md:ml-12">
-              <h2 className="text-blue-800 font-semibold text-lg">
-                🔷 Job Opportunities
-              </h2>
+          <div data-aos="fade-right">
+            <div className="mb-8 text-center md:text-left md:ml-12" data-aos="fade-up">
+              <h2 className="text-blue-800 font-semibold text-lg">🔷 Job Opportunities</h2>
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-2">
                 Fill This Form
               </h1>
               <div className="w-16 h-1 bg-black mt-4 mx-auto md:mx-0"></div>
             </div>
 
-            {/* Form */}
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               className="space-y-6 bg-gray-50 p-6 rounded-xl shadow-md"
+              data-aos="fade-up"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <input
@@ -120,6 +128,8 @@ Notice Period: ${formData.noticePeriod}`;
                   value={formData.name}
                   onChange={handleChange}
                   required
+                  data-aos="fade-up"
+                  data-aos-delay="100"
                   className="w-full border border-gray-300 rounded-md p-2 bg-white"
                 />
                 <input
@@ -129,6 +139,8 @@ Notice Period: ${formData.noticePeriod}`;
                   value={formData.email}
                   onChange={handleChange}
                   required
+                  data-aos="fade-up"
+                  data-aos-delay="150"
                   className="w-full border border-gray-300 rounded-md p-2 bg-white"
                 />
                 <input
@@ -138,6 +150,8 @@ Notice Period: ${formData.noticePeriod}`;
                   value={formData.contact}
                   onChange={handleChange}
                   required
+                  data-aos="fade-up"
+                  data-aos-delay="200"
                   className="w-full border border-gray-300 rounded-md p-2 bg-white"
                 />
                 <input
@@ -147,6 +161,8 @@ Notice Period: ${formData.noticePeriod}`;
                   value={formData.jobProfile}
                   onChange={handleChange}
                   required
+                  data-aos="fade-up"
+                  data-aos-delay="250"
                   className="w-full border border-gray-300 rounded-md p-2 bg-white"
                 />
                 <input
@@ -155,6 +171,8 @@ Notice Period: ${formData.noticePeriod}`;
                   placeholder="Job Experience"
                   value={formData.experience}
                   onChange={handleChange}
+                  data-aos="fade-up"
+                  data-aos-delay="300"
                   className="w-full border border-gray-300 rounded-md p-2 bg-white"
                 />
                 <input
@@ -163,26 +181,17 @@ Notice Period: ${formData.noticePeriod}`;
                   placeholder="Notice Period"
                   value={formData.noticePeriod}
                   onChange={handleChange}
+                  data-aos="fade-up"
+                  data-aos-delay="350"
                   className="w-full border border-gray-300 rounded-md p-2 bg-white"
-                />
-              </div>
-
-              {/* File Upload (Disabled) */}
-              <div>
-                <label className="block text-gray-600 text-sm mb-1">
-                  Resume/CV (Please attach manually in WhatsApp chat)
-                </label>
-                <input
-                  type="file"
-                  disabled
-                  className="w-full border border-gray-300 rounded-md p-2 bg-gray-200 cursor-not-allowed"
-                  title="File upload not supported for WhatsApp submission"
                 />
               </div>
 
               <button
                 type="submit"
                 className="w-full bg-blue-800 hover:bg-blue-900 text-white py-3 rounded-md transition duration-200"
+                data-aos="zoom-in"
+                data-aos-delay="400"
               >
                 Submit
               </button>
@@ -190,11 +199,13 @@ Notice Period: ${formData.noticePeriod}`;
           </div>
 
           {/* Right Section - Image */}
-          <div className="flex justify-center items-center h-full">
+          <div className="flex justify-center items-center h-full" data-aos="fade-left">
             <img
               src="/career.jpeg"
               alt="Career Growth"
               className="w-full max-w-md h-auto object-cover rounded-xl shadow"
+              data-aos="zoom-in"
+              data-aos-delay="300"
             />
           </div>
         </div>

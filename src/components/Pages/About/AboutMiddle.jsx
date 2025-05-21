@@ -49,13 +49,13 @@ const AboutMiddle = () => {
           </div>
 
           <p className="mb-4">
-            Krytons Consultancies is the best IT solution company in Jaipur that delivers top-notch
+            PrySoft Innovation is the best IT solution company in Jaipur that delivers top-notch
             solutions and ensures high-quality services to overcome challenges. Trust us to guide your
             technology landscape with expertise and accuracy.
           </p>
 
           <p className="mb-4">
-            We are in the process of creating a remarkable application that will connect you with skilled professionals who can cater to all your daily service needs. From IT solutions to planning, research, development, design, feedback implementation, reviews, and maintenance, our experienced staff at Krytons ensures a comprehensive service for every task.
+            We are in the process of creating a remarkable application that will connect you with skilled professionals who can cater to all your daily service needs. From IT solutions to planning, research, development, design, feedback implementation, reviews, and maintenance, our experienced staff at PrySoft ensures a comprehensive service for every task.
           </p>
 
           <p className="mb-6">

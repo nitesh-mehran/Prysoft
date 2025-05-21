@@ -266,9 +266,9 @@ const Footer = () => {
         <p className="text-sm">
           <span className="mr-1">©</span>
           <span className="underline underline-offset-4">
-            Prysoft Innovation Private Limited,
+            Prysoft Innovation Pvt Ltd,
           </span>
-          <span>All Right Reserved.</span>
+          <span> All Right Reserved.</span>
         </p>
         <div className="flex space-x-6">
           <Link

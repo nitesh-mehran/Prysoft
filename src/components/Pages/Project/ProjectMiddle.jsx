@@ -19,25 +19,25 @@ const projects = [
 
 const testimonials = [
   {
-    text: `Rajoriya's Studio comments, "Teaming up with Krytons to elevate our Instagram presence has been incredible! We are absolutely thrilled with the results. Their efforts have given a significant boost to our online visibility, and we couldn't be happier!"`,
+    text: `Rajoriya's Studio comments, "Teaming up with PrySoft to elevate our Instagram presence has been incredible! We are absolutely thrilled with the results. Their efforts have given a significant boost to our online visibility, and we couldn't be happier!"`,
     author: "Rajoriya's Studio",
     img: '/rajoriya.png',
     isBlue: true,
   },
   {
-    text: `Sharva Clinique from Delhi shares, "We trust Krytons for their social media magic. Their partnership has elevated our online presence across Instagram, Facebook, and YouTube, creating a buzz that resonates with our audience. We're thrilled to be on this journey to digital success with them!"`,
+    text: `Sharva Clinique from Delhi shares, "We trust PrySoft for their social media magic. Their partnership has elevated our online presence across Instagram, Facebook, and YouTube, creating a buzz that resonates with our audience. We're thrilled to be on this journey to digital success with them!"`,
     author: "Sharva Clinique",
     img: '/sharva_logo.png',
     isBlue: false,
   },
   {
-    text: `Care Mama Clinic & Vaccination Centre in Lucknow says, "Krytons' digital marketing expertise is amazing! We're thrilled with their impact, boosting our presence on Instagram and Facebook. They help us spread health and happiness with every click!"`,
+    text: `Care Mama Clinic & Vaccination Centre in Lucknow says, "PrySoft' digital marketing expertise is amazing! We're thrilled with their impact, boosting our presence on Instagram and Facebook. They help us spread health and happiness with every click!"`,
     author: "Care Mama Clinic & Vaccination Centre",
     img: '/mamacare.png',
     isBlue: true,
   },
   {
-    text: `Bright Scolar School and Bright Children's Academy express, "Krytons has done a fantastic job in expanding our social media presence through our Facebook page. Their efforts have not only met but exceeded our expectations, bringing increased engagement and visibility to our vibrant community of learners!"`,
+    text: `Bright Scolar School and Bright Children's Academy express, "PrySoft has done a fantastic job in expanding our social media presence through our Facebook page. Their efforts have not only met but exceeded our expectations, bringing increased engagement and visibility to our vibrant community of learners!"`,
     author: "Bright Scolar School",
     img: '/Group.png',
     isBlue: false,
